@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tap Earn</title>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<style>
+body{
+  background:#0f172a;
+  color:white;
+  font-family:sans-serif;
+  text-align:center;
+}
+.btn{
+  background:#22c55e;
+  margin:12px;
+  padding:15px;
+  border-radius:12px;
+  font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<h2 id="username">Loading...</h2>
+<h1 id="balance">0</h1>
+
+<div class="btn" onclick="openCPX()">CPX Research</div>
+<div class="btn" onclick="openAdGate()">AdGate Media</div>
+<div class="btn" onclick="openMonlix()">Monlix</div>
+<div class="btn" onclick="openOfferToro()">OfferToro</div>
+<div class="btn" onclick="openAyet()">Ayet Studios</div>
+<div class="btn" onclick="openLootably()">Lootably</div>
+
+<script>
+const tg = Telegram.WebApp;
+tg.expand();
+
+const user = tg.initDataUnsafe.user;
+document.getElementById("username").innerText =
+  user.first_name + " (" + user.id + ")";
+
+function openCPX(){
+  location.href="https://offers.cpx-research.com/index.php?app_id=YOUR_APP_ID&ext_user_id="+user.id;
+}
+function openAdGate(){
+  location.href="https://wall.adgaterewards.com/YOUR_APP_ID/"+user.id;
+}
+function openMonlix(){
+  location.href="https://monlix.com/offerwall?userid="+user.id;
+}
+function openOfferToro(){
+  location.href="https://www.offertoro.com/ifr/show/YOUR_APP_ID/"+user.id;
+}
+function openAyet(){
+  location.href="https://wall.ayetstudios.com/?external_identifier="+user.id;
+}
+function openLootably(){
+  location.href="https://wall.lootably.com/?placement_id=YOUR_APP_ID&user_id="+user.id;
+}
+</script>
+
+</body>
+</html>
